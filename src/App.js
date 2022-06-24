@@ -1,12 +1,14 @@
 import './App.css';
-import emoji from './images/glasses-emoji.jpeg'
 import Home from './homepage/home'
+import Lists from './lists/lists';
 
 
 function App() {
   return (
     <div>
       <Home/>
+      <Lists />
+      
     </div>
   );
 }
