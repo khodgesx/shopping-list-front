@@ -1,21 +1,22 @@
 import { useState } from 'react'
-import Lists from './lists'
 
 const NewList = (props)=>{
 
     const [newList, setNewList] = useState ({
         title: '',
         category: '',
-        items: []
+        items: [],
+        user:''
     })
    
 
     const createList = async(newList) =>{
         try{
-            const createResponse = await fetch('http://localhost:3001', {
+            const createResponse = await fetch('http://localhost:3001/lists', {
                 method: "POST",
                 body: JSON.stringify({
                     title: newList.title,
+                    category: newList.category,
                     items: [],
                     user: 'current user'
                 }),
@@ -41,10 +42,15 @@ const NewList = (props)=>{
             [e.target.name]: e.target.value,
         })
     }
+
+    const submitNewList = async (e)=>{
+        e.preventDefault();
+        createList(newList);
+    }
     return(
         <div>
             <h3>Oi, make a list here</h3>
-            <form>
+            <form id="new-list-form"onSubmit={submitNewList}>
             <div className="form-row">
                     <label htmlFor="list title"> List Title: </label>
                     <input onChange ={inputChange} type="text" name="title" value={newList.title}></input>
@@ -53,6 +59,7 @@ const NewList = (props)=>{
                 <label htmlFor="category"> Category: </label>
                 <input onChange ={inputChange} type="text" name="category" value={newList.category}></input>
             </div>
+            <button id="submit" type="submit">Create List</button>
             </form>
         </div>
     )
