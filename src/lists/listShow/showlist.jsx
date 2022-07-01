@@ -30,13 +30,14 @@ const ShowList = ()=>{
         <div>
             <h1>Showing {list.title}</h1>
             <h3>category: {list.category}</h3>
-            { list.items[0] ? <ul>
+            {/* { list.items[0] ? 
+            <ul>
                 <li>{list.items[0]}</li>
                 <li>{list.items[1]}</li>
             </ul>
-            :
-            <p>no list items yet. Add them <Link to={'/additem'}>here</Link></p>
-            }
+            : */}
+            <p>no list items yet. Add them <Link to={`/additem/${id}`}>here</Link></p>
+            {/*  } */}
             
         </div>
     )

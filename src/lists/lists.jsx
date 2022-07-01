@@ -17,7 +17,7 @@ const Lists = ()=>{
             //const lists = parsedLists.data
             //console.log(lists)
             await setLists(parsedLists.data)
-            await console.log(lists)
+            //await console.log(lists)
         }catch(err){
             console.log(err)
         }
