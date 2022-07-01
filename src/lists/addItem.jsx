@@ -6,27 +6,23 @@ const AddItem = ()=>{
     let params = useParams();
     let id = params.id;
 
-    const [newItem, setNewItem] = useState ({
-        name: '',
-        //list: '',
-        //user:''
-    })
+    const [newItem, setNewItem] = useState('')
 
 
-    const createItem = async (newItem) =>{
+    const createItem = async (addItem) =>{
         try{
-            const addedItem = await fetch (`http://localhost:3001/lists/${id}/add`, {
+            const addItemToList = await fetch (`http://localhost:3001/lists/${id}/add`, {
                 method: "PUT",
-                body: JSON.stringify({
-                    name: newItem.name,
+                body: JSON.stringify(
+                     addItem
                     //list: newItem.list,
                     //user: ''
-                }),
+                ),
                 headers: {
                     "Content-Type": "application/json"
                 }
             })
-            const parsedItem = await addedItem.json();
+            const parsedItem = await addItemToList.json();
             console.log(parsedItem)
         }catch(err){
             console.log(err)
@@ -34,10 +30,8 @@ const AddItem = ()=>{
     }
 
     const inputChange = (e)=>{
-        setNewItem({
-            ...newItem,
-            [e.target.name]: e.target.value,
-        })
+        console.log(e.target.name.value)
+        setNewItem(e.target.name = e.target.value)
     }
 
     const submitAdd = async(e)=>{
@@ -46,11 +40,11 @@ const AddItem = ()=>{
     }
     return(
         <div>
-            <h3>Oi, add items to any list here</h3>
+            <h3>Oi, add items to your list here</h3>
             <form onSubmit={submitAdd}>
             <div className="form-row">
                     <label htmlFor="name"> Item: </label>
-                    <input onChange ={inputChange} type="text" name="name" value={newItem.name}></input>
+                    <input onChange ={inputChange} type="text" name="name" value={newItem}></input>
                     
                 </div>
 
