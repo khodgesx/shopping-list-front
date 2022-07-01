@@ -1,8 +1,11 @@
 .App {
   text-align: center;
 }
-#glasses-emoji{
+/* #glasses-emoji{
   height: 3.5vh;
   display: inline;
-}
+} */
 
+.links{
+  list-style-type: none;
+}

@@ -17,7 +17,7 @@ const AddItem = ()=>{
     }
     return(
         <div>
-            <h3>Oi, make a list here</h3>
+            <h3>Oi, add items to any list here</h3>
             <form>
             <div className="form-row">
                     <label htmlFor="name"> Item: </label>

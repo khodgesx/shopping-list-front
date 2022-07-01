@@ -27,7 +27,8 @@ const NewList = (props)=>{
             const parsedResponse = await createResponse.json()
             console.log(parsedResponse)
             if(parsedResponse.success){
-                props.setLists(newList, ...props.lists)
+               // props.setLists(newList, ...props.lists)
+               console.log(parsedResponse.data)
             }else{
                 console.log(parsedResponse.data)
             }
