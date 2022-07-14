@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const ShowList = ()=>{
@@ -9,6 +9,9 @@ const ShowList = ()=>{
 
     let params = useParams();
     const id = params.id;
+
+    let navigate = useNavigate();
+
 
     const [list, setList] = useState({})
 
@@ -26,6 +29,20 @@ const ShowList = ()=>{
         }
     }
 
+    const deleteList = async(list)=>{
+       
+        try{
+            const deleteResponse = await fetch(`http://localhost:3001/lists/${id}`,{
+                method:"DELETE"
+            })
+            // const newList = props.wineCellar.filter((wine)=>wine._id !==(wine))
+            //     props.setWineCellar(newList)
+                navigate ('/lists')
+        }catch(err){
+            console.log(err)
+        }
+    }
+
     return(
         <div>
             <h1>Showing {list.title}</h1>
@@ -38,6 +55,7 @@ const ShowList = ()=>{
             : */}
             <p>no list items yet. Add them <Link to={`/additem/${id}`}>here</Link></p>
             {/*  } */}
+            <button onClick={deleteList}>Delete List</button>
             
         </div>
     )
