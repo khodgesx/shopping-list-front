@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 const ShowList = ()=>{
 
     useEffect(()=>{
-        getList();
+        //getList();
+        getAndList();
     }, [])
 
     let params = useParams();
@@ -14,6 +15,10 @@ const ShowList = ()=>{
 
 
     const [list, setList] = useState({})
+
+    const getAndList = async()=>{
+        await getList();
+    }
 
     const getList = async()=>{
         try{
@@ -35,26 +40,29 @@ const ShowList = ()=>{
             const deleteResponse = await fetch(`http://localhost:3001/lists/${id}`,{
                 method:"DELETE"
             })
-            // const newList = props.wineCellar.filter((wine)=>wine._id !==(wine))
-            //     props.setWineCellar(newList)
                 navigate ('/lists')
         }catch(err){
             console.log(err)
         }
     }
+ 
 
     return(
         <div>
-            <h1>Showing {list.title}</h1>
+            <h1>{list.title}</h1>
             <h3>category: {list.category}</h3>
-            {/* { list.items[0] ? 
-            <ul>
-                <li>{list.items[0]}</li>
-                <li>{list.items[1]}</li>
-            </ul>
-            : */}
             <p>no list items yet. Add them <Link to={`/additem/${id}`}>here</Link></p>
-            {/*  } */}
+                {/* { list.items.length === 0 ? 
+                <section>
+                    <p>no list items yet. Add them <Link to={`/additem/${id}`}>here</Link></p>
+                </section>
+                :
+                <section>
+                    { list.items.map ((item)=>{
+                        <li key = {item}>{item}</li>
+                    })}
+                </section>
+                } */}
             <button onClick={deleteList}>Delete List</button>
             
         </div>
