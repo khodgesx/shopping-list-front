@@ -13,11 +13,11 @@ const AddItem = ()=>{
         try{
             const addItemToList = await fetch (`http://localhost:3001/lists/${id}/add`, {
                 method: "PUT",
-                body: JSON.stringify(
-                     addItem
+                body: JSON.stringify({
+                     name: addItem
                     //list: newItem.list,
                     //user: ''
-                ),
+                }),
                 headers: {
                     "Content-Type": "application/json"
                 }

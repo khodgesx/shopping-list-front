@@ -4,8 +4,11 @@ import { useState, useEffect } from "react";
 const ShowList = ()=>{
 
     useEffect(()=>{
-        //getList();
-        getAndList();
+        getList();
+        //getAndList();
+        // setTimeout(()=>{
+        //     getList()
+        // }, 1000)
     }, [])
 
     let params = useParams();
@@ -15,10 +18,8 @@ const ShowList = ()=>{
 
 
     const [list, setList] = useState({})
-
-    const getAndList = async()=>{
-        await getList();
-    }
+   
+   const [items, setItems] = useState([{}])
 
     const getList = async()=>{
         try{
@@ -26,8 +27,11 @@ const ShowList = ()=>{
             const currentList = await fetch (`http://localhost:3001/lists/${id}`);
            
             const parsedList = await currentList.json() //breaking here?
-            console.log(parsedList.data)
+           
             setList(parsedList.data)
+            setItems(parsedList.data.items)
+            //console.log(parsedList.data)
+            
 
         }catch(err){
             console.log(err)
@@ -51,18 +55,21 @@ const ShowList = ()=>{
         <div>
             <h1>{list.title}</h1>
             <h3>category: {list.category}</h3>
-            <p>no list items yet. Add them <Link to={`/additem/${id}`}>here</Link></p>
-                {/* { list.items.length === 0 ? 
+            
+                { items.length === 0 ? 
                 <section>
                     <p>no list items yet. Add them <Link to={`/additem/${id}`}>here</Link></p>
                 </section>
                 :
                 <section>
-                    { list.items.map ((item)=>{
-                        <li key = {item}>{item}</li>
+                    { items.map ((item)=>{
+                        return(
+                            <li>{item.name}</li>
+                        )
                     })}
                 </section>
-                } */}
+                }
+                <p><Link to={`/additem/${id}`}>add another item</Link></p>
             <button onClick={deleteList}>Delete List</button>
             
         </div>
