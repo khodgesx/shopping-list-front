@@ -8,4 +8,21 @@
 
 .links{
   list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(28, 110, 32);
+  height: 5vh;
+  font-size: 2.2vh;
+}
+
+.links a{
+  text-decoration: none;
+  color:white;
+}
+
+#list-of-lists{
+  align-items:left ;
+  color:rgb(0, 166, 255);
+  text-decoration: none;
 }

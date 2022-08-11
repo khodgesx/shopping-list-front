@@ -28,7 +28,7 @@ const Lists = ()=>{
     return(
         <div>
            
-            <h3>A List of...your lists:</h3>
+            <h3>A List of YOUR Lists:</h3>
             
             <div>
 
@@ -36,7 +36,7 @@ const Lists = ()=>{
                 return(
                     
                     <div key={list._id}>
-                        <Link to={`/list/${list._id}`}><li>{list.title}</li></Link>
+                        <Link to={`/list/${list._id}`}><li id='list-of-lists'>{list.title}</li></Link>
                     </div>
                    
                 )

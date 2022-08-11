@@ -5,10 +5,6 @@ const ShowList = ()=>{
 
     useEffect(()=>{
         getList();
-        //getAndList();
-        // setTimeout(()=>{
-        //     getList()
-        // }, 1000)
     }, [])
 
     let params = useParams();
@@ -26,12 +22,10 @@ const ShowList = ()=>{
             
             const currentList = await fetch (`http://localhost:3001/lists/${id}`);
            
-            const parsedList = await currentList.json() //breaking here?
+            const parsedList = await currentList.json() 
            
             setList(parsedList.data)
             setItems(parsedList.data.items)
-            //console.log(parsedList.data)
-            
 
         }catch(err){
             console.log(err)
@@ -41,7 +35,7 @@ const ShowList = ()=>{
     const deleteList = async(list)=>{
        
         try{
-            const deleteResponse = await fetch(`http://localhost:3001/lists/${id}`,{
+            await fetch(`http://localhost:3001/lists/${id}`,{
                 method:"DELETE"
             })
                 navigate ('/lists')

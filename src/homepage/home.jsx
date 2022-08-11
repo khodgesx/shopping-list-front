@@ -13,12 +13,6 @@ const Home = () =>{
                
             </p>
             
-            <div>
-                <ul className="links">
-                    <li><Link to={'/lists'}>Lists</Link></li>
-                    <li><Link to={'/newlist'}>New List</Link></li>
-                </ul>
-            </div>
         </div>
     )
 }

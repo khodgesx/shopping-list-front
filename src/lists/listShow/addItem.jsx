@@ -17,8 +17,6 @@ const AddItem = ()=>{
                 method: "PUT",
                 body: JSON.stringify({
                      name: addItem
-                    //list: newItem.list,
-                    //user: ''
                 }),
                 headers: {
                     "Content-Type": "application/json"
@@ -46,17 +44,11 @@ const AddItem = ()=>{
         <div>
             <h3>Oi, add items to your list here</h3>
             <form onSubmit={submitAdd}>
-            <div className="form-row">
-                    <label htmlFor="name"> Item: </label>
-                    <input onChange ={inputChange} type="text" name="name" value={newItem}></input>
-                    
+                <div className="form-row">
+                        <label htmlFor="name"> Item: </label>
+                        <input onChange ={inputChange} type="text" name="name" value={newItem}></input>
+                        
                 </div>
-
-                {/* <div className="form-row">
-                    <label htmlFor="list"> List: </label>
-                    <input onChange ={inputChange} type="text" name="list" value={newItem.list}></input>
-                    
-                </div> */}
                 <button type="submit">add item</button>
             </form>
         </div>

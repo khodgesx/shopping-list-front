@@ -1,11 +1,11 @@
-import {BrowserRouter, Routes, Route, Navigate, Link} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
 import Home from './homepage/home'
 import Lists from './lists/lists';
 import NewList from './lists/newList';
 import NavBar from './navbar/navbar';
 import ShowList from './lists/listShow/showlist';
-import AddItem from './lists/addItem';
+import AddItem from './lists/listShow/addItem';
 
 
 function App() {
