@@ -13,11 +13,8 @@ const Lists = ()=>{
         try{
             const listsResponse = await fetch('http://localhost:3001/lists')
             const parsedLists = await listsResponse.json()
-            // console.log(parsedLists.data)
-            //const lists = parsedLists.data
-            //console.log(lists)
             await setLists(parsedLists.data)
-            //await console.log(lists)
+           
         }catch(err){
             console.log(err)
         }

@@ -11,13 +11,16 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: rgb(28, 110, 32);
+  background-color: rgb(60, 199, 199);
   height: 5vh;
   font-size: 2.2vh;
 }
 
 .links a{
   text-decoration: none;
+  color:rgb(202, 91, 91);
+}
+.links a:hover{
   color:white;
 }
 
