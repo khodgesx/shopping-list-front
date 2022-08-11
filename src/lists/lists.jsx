@@ -4,8 +4,8 @@ import NewList from "./newList";
 
 const Lists = ()=>{
     useEffect(()=>{
-        // getLists();
-    })
+        getLists();
+    }, [])
     //state of lists - updates with fetch
     const [lists, setLists] = useState([])
     //function to fetch index of lists from database:
@@ -29,7 +29,6 @@ const Lists = ()=>{
         <div>
            
             <h3>A List of...your lists:</h3>
-            <button onClick={getLists}>get lists</button>
             
             <div>
 

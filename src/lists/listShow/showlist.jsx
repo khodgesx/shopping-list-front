@@ -67,9 +67,10 @@ const ShowList = ()=>{
                             <li>{item.name}</li>
                         )
                     })}
+                    <p><Link to={`/additem/${id}`}>add another item</Link></p>
                 </section>
                 }
-                <p><Link to={`/additem/${id}`}>add another item</Link></p>
+                
             <button onClick={deleteList}>Delete List</button>
             
         </div>

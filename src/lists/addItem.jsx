@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 const AddItem = ()=>{
 
     let params = useParams();
     let id = params.id;
+
+    let navigate = useNavigate();
 
     const [newItem, setNewItem] = useState('')
 
@@ -24,6 +26,7 @@ const AddItem = ()=>{
             })
             const parsedItem = await addItemToList.json();
             console.log(parsedItem)
+            
         }catch(err){
             console.log(err)
         }
@@ -37,6 +40,7 @@ const AddItem = ()=>{
     const submitAdd = async(e)=>{
         e.preventDefault();
         createItem(newItem);
+        navigate(`/list/${id}`)
     }
     return(
         <div>
