@@ -29,3 +29,20 @@
   color:rgb(0, 166, 255);
   text-decoration: none;
 }
+
+.search-div{
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  width: 30%;
+  align-items: center;
+  margin: auto;
+}
+
+#search{
+  font-size: 1rem;
+}
+
+#list-search h4{
+  color:black;
+}
