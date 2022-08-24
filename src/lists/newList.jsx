@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const NewList = (props)=>{
 
@@ -8,6 +9,8 @@ const NewList = (props)=>{
         items: [],
         user:''
     })
+
+    let navigate = useNavigate()
    
 
     const createList = async(newList) =>{
@@ -47,6 +50,7 @@ const NewList = (props)=>{
     const submitNewList = async (e)=>{
         e.preventDefault();
         createList(newList);
+        navigate('/lists')
     }
     return(
         <div>
