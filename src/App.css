@@ -28,6 +28,7 @@
   align-items:left ;
   color:rgb(0, 166, 255);
   text-decoration: none;
+  padding: 0.25rem;
 }
 
 .search-div{
@@ -45,4 +46,21 @@
 
 #list-search h4{
   color:black;
+}
+
+/* calculator */
+#numbers-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  margin: 0 auto;
+  border: 10px solid orange;
+  border-radius: 6px;
+  height: fit-content;
+  width: fit-content;
+}
+.numbers{
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+ 
 }
