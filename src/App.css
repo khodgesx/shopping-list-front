@@ -67,6 +67,12 @@
 .numbers:hover{
   background-color: rgb(241, 193, 105);
 }
+.op{
+  color: rgb(41, 139, 132);
+}
+#equals{
+  color:rgb(255, 98, 0);
+}
 #screen{
   margin: 5px;
   height: 2rem;
