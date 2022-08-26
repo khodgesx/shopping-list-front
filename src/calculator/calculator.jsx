@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 
 
 const Calculator = () =>{
 
+    let navigate = useNavigate()
     
     //const result = document.getElementById('result')
     //seven.addEventListener('click', ()=>{
@@ -11,6 +13,16 @@ const Calculator = () =>{
     //     resultText = '7'
     // })
 
+    
+    // const [calc, setCalc] = useState({
+    //     firstOperand: 0,
+    //     waitingforSecond: false,
+    //     secondOperand: 0,
+    //     waitForOperator: true,
+    //     operator: '',
+    //     result: 0,
+    //     screen: 0
+    // })
     const [firstOperand, setFirstOperand] = useState(0)
 
     const [waitingforSecond, setWaitingForSecond] = useState(false)
@@ -42,6 +54,16 @@ const Calculator = () =>{
                 setSecondOperand(secondOperand + e.target.innerHTML)
                 setScreen(secondOperand + e.target.innerHTML)
             } 
+        }
+    }
+
+    const addDecimal=(e)=>{
+        console.log(e.target.innerHTML)
+        if(waitingforSecond === false){
+            setFirstOperand(firstOperand + e.target.innerHTML)
+            console.log(firstOperand)
+        }else{
+            setSecondOperand(secondOperand + e.target.innerHTML)
         }
     }
 
@@ -87,15 +109,12 @@ const Calculator = () =>{
         }
         
     }
+    let cleared;
     const clear=()=>{
-        setResult(0)
+       cleared = true;
+    }
+    if(cleared === true){
         setScreen(0)
-        setFirstOperand(0)
-        setSecondOperand(0)
-        setWaitingForSecond(false)
-        setWaitForOperator(false)
-        setOperator('')
-        
     }
 
     return(
@@ -122,7 +141,7 @@ const Calculator = () =>{
 
                 <button onClick={evaluateNums}className="numbers" id="0">0</button>
 
-                <button className="numbers" id=".">.</button>
+                <button onClick={addDecimal}className="numbers" id=".">.</button>
 
                 <button onClick={solve}className="numbers" id="equals">=</button>
 
