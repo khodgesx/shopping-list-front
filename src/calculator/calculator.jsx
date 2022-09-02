@@ -40,6 +40,9 @@ const Calculator = () =>{
             if(firstOperand === 0){
                 setFirstOperand(e.target.innerHTML)
                 setScreen(e.target.innerHTML)
+            }else if(firstOperand === 0 + '.'){
+                setFirstOperand('0.' + e.target.innerHTML)
+                setScreen('0.' + e.target.innerHTML)
             }else{
                 setFirstOperand(firstOperand + e.target.innerHTML)
                 setScreen(firstOperand + e.target.innerHTML)
@@ -61,6 +64,7 @@ const Calculator = () =>{
         console.log(e.target.innerHTML)
         if(waitingforSecond === false){
             setFirstOperand(firstOperand + e.target.innerHTML)
+            setScreen(firstOperand + e.target.innerHTML)
             console.log(firstOperand)
         }else{
             setSecondOperand(secondOperand + e.target.innerHTML)
@@ -79,23 +83,25 @@ const Calculator = () =>{
     const solve = ()=>{
         if(!isNaN(firstOperand) && !isNaN(secondOperand)){
             if(operator === '+'){
-                let answer = parseInt(firstOperand) + parseInt(secondOperand)
+                let answer = parseFloat(firstOperand) + parseFloat(secondOperand)
+     
                 setResult(answer)
                 setScreen(answer)
                 setFirstOperand(answer)
+    
             }else if(operator === '-'){
-                let answer = parseInt(firstOperand) - parseInt(secondOperand)
+                let answer = parseFloat(firstOperand) - parseFloat(secondOperand)
                 setResult(answer)
                 setScreen(answer)
                 setFirstOperand(answer)
             }else if(operator === '*'){
-                let answer = parseInt((firstOperand) * parseInt(secondOperand))
+                let answer = parseFloat((firstOperand) * parseFloat(secondOperand))
                 setResult(answer)
                 setScreen(answer)
                 setFirstOperand(answer)
                 setScreen(answer)
             }else if(operator === '/'){
-                let answer = parseInt(firstOperand) / parseInt(secondOperand)
+                let answer = parseFloat(firstOperand) / parseFloat(secondOperand)
                 setResult(answer)
                 setScreen(answer)
                 setFirstOperand(answer)
@@ -109,11 +115,13 @@ const Calculator = () =>{
         }
         
     }
-    let cleared;
     const clear=()=>{
-       cleared = true;
-    }
-    if(cleared === true){
+        setFirstOperand(0)
+        setWaitingForSecond(false)
+        setSecondOperand(0)
+        setWaitForOperator(true)
+        setOperator('')
+        setResult(0)
         setScreen(0)
     }
 
@@ -149,7 +157,7 @@ const Calculator = () =>{
             </div>
             <div className="calc-entry">
                 <input id="screen"type="text" value={screen}disabled></input>
-                <button onClick={clear}>Clear</button>
+                <button id="clear"onClick={clear}>Clear</button>
                 
                 <h3>First Operand = {firstOperand}</h3>
                 <h3>operator: {operator}</h3>
