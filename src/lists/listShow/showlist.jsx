@@ -55,10 +55,10 @@ const ShowList = ()=>{
                     <p>no list items yet. Add them <Link to={`/additem/${id}`}>here</Link></p>
                 </section>
                 :
-                <section>
+                <section id="items-listed">
                     { items.map ((item)=>{
                         return(
-                            <li>{item.name}</li>
+                            <li>{item.name} <input type="checkbox"></input></li>
                         )
                     })}
                     <p><Link to={`/additem/${id}`}>add another item</Link></p>

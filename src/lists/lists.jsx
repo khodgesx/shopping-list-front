@@ -25,6 +25,7 @@ const Lists = ()=>{
     //search lists for specific list:
     const [results, setResults] = useState([])
     const [searchInput, setSearchInput] = useState('')
+
     const searchLists = (searchValue)=>{
         setSearchInput(searchValue)
         if(searchInput !== ''){
@@ -35,26 +36,13 @@ const Lists = ()=>{
         }else{
             setResults(lists)
         }
+        
     }
     
 
     return(
         <div>
-           <div className="search-div">
-            <label htmlFor="search">Search for a list</label>
-                <input type="search" id="search" placeholder="search list name" value={searchInput} 
-                onChange={(e)=>searchLists(e.target.value)}></input>
-                <button>Search</button>
-            </div>
-            <div id="search-lists-results">
-                {results.map((list)=>{
-                    return(
-                        <div id="list-search" key={list._id}>
-                            <h4>{list.title}</h4>
-                        </div>
-                    )
-                })}
-            </div>
+           
                 
            
        
@@ -73,6 +61,22 @@ const Lists = ()=>{
             })}
             </div>
            
+            <div className="search-div">
+            <label htmlFor="search">Search for a list</label>
+                <input type="search" id="search" placeholder="search list name" value={searchInput} 
+                onChange={(e)=>searchLists(e.target.value)}></input>
+                <button>Search</button>
+            </div>
+            <div id="search-lists-results">
+                {results.map((list)=>{
+                    
+                    return(
+                        <div id="list-search" key={list._id}>
+                            <Link to={`/list/${list._id}`}><li id='list-of-lists'>{list.title}</li></Link>
+                        </div>
+                    )
+                })}
+            </div>
            
         </div>
     )
