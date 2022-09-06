@@ -39,6 +39,7 @@ const AddItem = ()=>{
         e.preventDefault();
         createItem(newItem);
         navigate(`/list/${id}`)
+        window.location.reload()
     }
     return(
         <div>

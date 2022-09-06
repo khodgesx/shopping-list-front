@@ -31,6 +31,14 @@
   padding: 0.25rem;
 }
 
+#list-of-lists-div {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  align-items: flex-start;
+  margin: 0 auto;
+}
+
 .search-div{
   padding-top: 50px;
   display: flex;

@@ -32,7 +32,10 @@ const EditList = ()=>{
     }
 
     return(
-        <h3>edit {list.title}</h3>
+        <div>
+            <h3>edit {list.title}</h3>
+        </div>
+        
     )
 }
 
