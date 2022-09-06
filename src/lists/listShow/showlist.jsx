@@ -32,6 +32,28 @@ const ShowList = ()=>{
         }
     }
 
+    const updateList = (e)=>{
+        //if list item is checked then delete that item
+        //filter?
+        console.log(items)
+        { items.map ((item)=>{
+         
+               console.log(item.name)
+               console.log(e)
+        
+        })}
+
+    }
+
+    const editList = async()=>{
+        try{
+           
+            
+        }catch(err){
+            console.log(err)
+        }
+    }
+
     const deleteList = async(list)=>{
        
         try{
@@ -58,10 +80,15 @@ const ShowList = ()=>{
                 <section id="items-listed">
                     { items.map ((item)=>{
                         return(
-                            <li>{item.name} <input type="checkbox"></input></li>
+                            <li key={item._id}>{item.name} <input value ="item.name"type="checkbox"></input></li>
                         )
                     })}
-                    <p><Link to={`/additem/${id}`}>add another item</Link></p>
+                    <div id="edit-links">
+                        <Link to={`/list/edit/${id}`}>Edit</Link>
+                        <button onClick={updateList}id='refresh-list'>Update List</button>
+                        <p><Link to={`/additem/${id}`}>add another item</Link></p>
+                    </div>
+                     
                 </section>
                 }
                 

@@ -7,6 +7,7 @@ import NavBar from './navbar/navbar';
 import ShowList from './lists/listShow/showlist';
 import AddItem from './lists/listShow/addItem';
 import Calculator from './calculator/calculator'
+import EditList from './lists/listShow/editList';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route exact path="/lists" element={ <Lists/>} />
             <Route exact path="/newlist" element={ <NewList/>} />
             <Route exact path="/list/:id" element={ <ShowList/>} />
+            <Route exact path="/list/edit/:id" element={ <EditList/>} />
             <Route exact path="/additem/:id" element={ <AddItem/>} />
             <Route exact path="/calculator" element={ <Calculator/>} />
           </Routes>
