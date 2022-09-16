@@ -9,8 +9,6 @@ const Lists = ()=>{
     //state of lists - updates with fetch
     const [lists, setLists] = useState([])
 
-    const dataListTemplate = document.querySelector("[data-list-template]");
-
     //function to fetch index of lists from database:
     const getLists = async ()=>{
         try{
@@ -36,7 +34,6 @@ const Lists = ()=>{
         }else{
             setResults(lists)
         }
-        
     }
     
 

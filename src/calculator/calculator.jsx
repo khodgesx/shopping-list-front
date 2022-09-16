@@ -1,28 +1,8 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom'
 
 
 const Calculator = () =>{
-
-    let navigate = useNavigate()
     
-    //const result = document.getElementById('result')
-    //seven.addEventListener('click', ()=>{
-    //     console.log('7')
-    //     let resultText = result.innerHTML
-    //     resultText = '7'
-    // })
-
-    
-    // const [calc, setCalc] = useState({
-    //     firstOperand: 0,
-    //     waitingforSecond: false,
-    //     secondOperand: 0,
-    //     waitForOperator: true,
-    //     operator: '',
-    //     result: 0,
-    //     screen: 0
-    // })
     const [firstOperand, setFirstOperand] = useState(0)
 
     const [waitingforSecond, setWaitingForSecond] = useState(false)
